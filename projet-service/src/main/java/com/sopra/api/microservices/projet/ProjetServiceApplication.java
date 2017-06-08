@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Bean;
 @EnableHystrix
 @EnableFeignClients
 @EnableDiscoveryClient
-@SpringBootApplication(scanBasePackages = "com.neuflizeobc.api.microservices")
+@SpringBootApplication(scanBasePackages = "com.sopra.api.microservices")
 public class ProjetServiceApplication {
 
     public static void main(String[] args) {
