@@ -1,0 +1,30 @@
+package com.sopra.api.microservices.projet;
+
+import feign.Logger;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.context.annotation.Bean;
+
+/**
+ * Classe principale du service de gestion des profils utilisateurs
+ *
+ * @author jntakpe
+ */
+@EnableHystrix
+@EnableFeignClients
+@EnableDiscoveryClient
+@SpringBootApplication(scanBasePackages = "com.neuflizeobc.api.microservices")
+public class ProjetServiceApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ProjetServiceApplication.class, args);
+    }
+
+    @Bean
+    public Logger.Level logger() {
+        return Logger.Level.FULL;
+    }
+}

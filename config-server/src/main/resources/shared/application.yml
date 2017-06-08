@@ -1,0 +1,20 @@
+efs:
+  gateway:
+    url: ${efs.gateway.uri:http://localhost:9080/nobc-api/efs-service}
+auth:
+  gateway:
+    url: ${auth.gateway.uri:http://localhost:9080/nobc-api/auth-service}
+efswsauthentication:
+  gateway:
+    url: ${efswsauthentication.gateway.uri:http://localhost:9080/nobc-api/efs-service-wsauthentication}
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 7000 #5000
+business:
+  links:
+    externalBaseUrl: http://localhost:9080

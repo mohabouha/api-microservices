@@ -1,0 +1,54 @@
+server:
+  port: ${port:9080}
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 20000 #2000
+ribbon:
+  ConnectTimeout: 20000
+  ReadTimeout: 20000
+
+zuul:
+  prefix: /api
+  ignoredServices: '*'
+  routes:
+    projet-service:
+      path: /projet-service/**
+      sensitiveHeaders:
+    profile-service:
+      path: /profile-service/**
+      sensitiveHeaders:
+    transaction-service:
+      path: /transaction-service/**
+      sensitiveHeaders:
+    auth-service:
+      path: /auth-service/**
+      url: ${auth.url:http://localhost:8080}
+      sensitiveHeaders:
+    efs-service:
+      path: /efs-service/**
+#      En mock
+#      url: ${efs.url:http://localhost:8081}
+#      En local
+      url: ${efs.url:https://homo3-tests.neuflizeobc.net}
+#      En homo3
+#      url: ${efs.url:https://ws1.homo3.nobc.client.francenet.fr:20017}
+      sensitiveHeaders:
+    efs-service-wsauthentication:
+      path: /efs-service-wsauthentication/**
+#      En mock
+#      url: ${efs.url:http://localhost:8081}
+#      En local
+      url: ${efs.url:https://homo3-tests.neuflizeobc.net}
+#      En homo3
+#      url: ${efshomo3.url:https://ws1.homo3.nobc.client.francenet.fr:20016}
+      sensitiveHeaders:
+  add-proxy-headers: true
+
+
+
+

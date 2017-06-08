@@ -1,0 +1,16 @@
+server:
+  port: ${port:8280}
+spring:
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+  hateoas:
+    use-hal-as-default-json-media-type: false
+
+api:
+  docs:
+    title: projet service REST API
+    description: Documentation de l'API REST exposée par le service de gestion des projet
+    version: 1.0
+
+

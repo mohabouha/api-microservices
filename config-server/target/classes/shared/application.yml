@@ -1,0 +1,101 @@
+efs:
+  gateway:
+    url: ${efs.gateway.uri:http://localhost:9080/nobc-api/efs-service}
+auth:
+  gateway:
+    url: ${auth.gateway.uri:http://localhost:9080/nobc-api/auth-service}
+efswsauthentication:
+  gateway:
+    url: ${efswsauthentication.gateway.uri:http://localhost:9080/nobc-api/efs-service-wsauthentication}
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 7000 #5000
+business:
+  links:
+    externalBaseUrl: http://localhost:9080
+
+---
+spring:
+  profiles: dev-https
+efs:
+  gateway:
+    url: ${efs.gateway.uri:https://localhost:9080/nobc-api/efs-service}
+auth:
+  gateway:
+    url: ${auth.gateway.uri:https://localhost:9080/nobc-api/auth-service}
+efswsauthentication:
+  gateway:
+    url: ${efswsauthentication.gateway.uri:https://localhost:9080/nobc-api/efs-service-wsauthentication}
+business:
+  links:
+    externalBaseUrl: https://localhost:9080
+
+---
+spring:
+  profiles: homo3
+efs:
+  gateway:
+    url: ${efs.gateway.uri:https://microservice.homo3.nobc.client.francenet.fr:9080/nobc-api/efs-service}
+efswsauthentication:
+  gateway:
+    url: ${efswsauthentication.gateway.uri:https://microservice.homo3.nobc.client.francenet.fr:9080/nobc-api/efs-service-wsauthentication}
+business:
+  links:
+    externalBaseUrl: https://homo3-tests.api.neuflizeobc.net
+
+---
+spring:
+  profiles: rgb-A
+efs:
+  gateway:
+    url: ${efs.gateway.uri:https://microservicea.rgb.nobc.client.francenet.fr:9080/nobc-api/efs-service}
+efswsauthentication:
+  gateway:
+    url: ${efswsauthentication.gateway.uri:https://microservicea.rgb.nobc.client.francenet.fr:9080/nobc-api/efs-service-wsauthentication}
+business:
+  links:
+    externalBaseUrl: https://rgb.api.neuflizeobc.net
+
+---
+spring:
+  profiles: rgb-B
+efs:
+  gateway:
+    url: ${efs.gateway.uri:https://microserviceb.rgb.nobc.client.francenet.fr:9080/nobc-api/efs-service}
+efswsauthentication:
+  gateway:
+    url: ${efswsauthentication.gateway.uri:https://microserviceb.rgb.nobc.client.francenet.fr:9080/nobc-api/efs-service-wsauthentication}
+business:
+  links:
+    externalBaseUrl: https://rgb.api.neuflizeobc.net
+
+---
+spring:
+  profiles: prod-A
+efs:
+  gateway:
+    url: ${efs.gateway.uri:https://microservicesA.prod.nobc.client.francenet.fr:9080/nobc-api/efs-service}
+efswsauthentication:
+  gateway:
+    url: ${efswsauthentication.gateway.uri:https://microservicesA.prod.nobc.client.francenet.fr:9080/nobc-api/efs-service-wsauthentication}
+business:
+  links:
+    externalBaseUrl: https://api.neuflizeobc.net
+
+---
+spring:
+  profiles: prod-B
+efs:
+  gateway:
+    url: ${efs.gateway.uri:https://microservicesB.prod.nobc.client.francenet.fr:9080/nobc-api/efs-service}
+efswsauthentication:
+  gateway:
+    url: ${efswsauthentication.gateway.uri:https://microservicesB.prod.nobc.client.francenet.fr:9080/nobc-api/efs-service-wsauthentication}
+business:
+  links:
+    externalBaseUrl: https://api.neuflizeobc.net

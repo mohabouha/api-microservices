@@ -1,0 +1,26 @@
+server:
+  port: ${port:9080}
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 20000 #2000
+ribbon:
+  ConnectTimeout: 20000
+  ReadTimeout: 20000
+
+zuul:
+  prefix: /api
+  ignoredServices: '*'
+  routes:
+    projet-service:
+      path: /projet-service/**
+      sensitiveHeaders:
+  add-proxy-headers: true
+
+
+
+
