@@ -16,7 +16,7 @@ public class ProjetResource {
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String findClients() {
-        return "Hello World !!";
+        return "Hello World";
     }
 
 }
